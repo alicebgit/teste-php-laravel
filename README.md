@@ -18,6 +18,7 @@ Este teste utiliza PHP 8.1, Laravel 10 e um banco de dados SQLite simples.
 Crítica das Migrations e Seeders: Aponte problemas, se houver, e solucione; Implemente melhorias;
 Alteração para postgre
 Adição de laravel sail
+Alteração do campo name para 150 caracteres
 
 
 ### Segunda Tarefa:

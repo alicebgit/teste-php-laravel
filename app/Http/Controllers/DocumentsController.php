@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Jobs\ProcessDocumentImport;
-use App\Models\Documents;
+use App\Models\Document;
 
-class DocumentsController extends Controller
+class DocumentController extends Controller
 {
     public function upload(Request $request)
     {
@@ -46,7 +46,7 @@ class DocumentsController extends Controller
                 $conteudo = $documento['conteúdo']; 
     
                 
-                $document = new Documents();
+                $document = new Document();
                 $document->category_id =  $categoria;
                 $document->title = $titulo;
                 $document->contents = $conteudo;
