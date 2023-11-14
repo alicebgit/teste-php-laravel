@@ -1,6 +1,8 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/upload', [DocumentsController::class, 'upload'])->name('upload');
+
+//faz chamada para fila no docker
+Route::post('/queue', function (Carbon $carbon) {
+    $command = 'docker exec php-laravel.test-1 php ' . base_path('artisan') . ' queue:work --stop-when-empty';
+    exec($command);
+
+    return view('welcome');
+})->name('queue');
